@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import NavItems from "../NavItems";
+import UserDropdown from "../UserDropdown";
 
 const Header = () => {
   return (
@@ -14,11 +15,11 @@ const Header = () => {
             height={32}
             className="h-8 w-auto cursor-pointer"
           />
-          <nav className="hidden sm:block">
-            <NavItems />
-          </nav>
-          {/* UserDropdown */}
         </Link>
+        <nav className="hidden sm:block">
+          <NavItems />
+        </nav>
+        <UserDropdown />
       </div>
     </header>
   );
