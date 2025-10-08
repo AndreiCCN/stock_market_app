@@ -9,7 +9,7 @@ export const getAuth = async () => {
   if (authInstance) return authInstance;
 
   const mongoose = await connectToDatabase();
-  const db = mongoose.Connection.bind;
+  const db = mongoose.connection.db;
 
   if (!db) throw new Error("MongoDB connection not found");
 
