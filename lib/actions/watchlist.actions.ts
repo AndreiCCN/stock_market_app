@@ -1,4 +1,4 @@
-"user server";
+"use server";
 
 import { Watchlist } from "@/database/models/watchlist.model";
 import { connectToDatabase } from "@/database/mongoose";

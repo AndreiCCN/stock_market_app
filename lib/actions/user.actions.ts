@@ -12,9 +12,7 @@ export const getAllUsersForNewsEmail = async () => {
     const users = await db
       .collection("user")
       .find(
-        {
-          email: { $exists: true, $me: null },
-        },
+        { email: { $exists: true, $ne: null } },
         { projection: { _id: 1, id: 1, email: 1, name: 1, country: 1 } }
       )
       .toArray();
@@ -27,7 +25,7 @@ export const getAllUsersForNewsEmail = async () => {
         name: user.name,
       }));
   } catch (err) {
-    console.error("error fetching users for news email: ", err);
+    console.error("Error fetching users for news email: ", err);
     return [];
   }
 };
