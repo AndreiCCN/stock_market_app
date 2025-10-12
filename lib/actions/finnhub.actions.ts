@@ -56,8 +56,8 @@ export async function getNews(
             )}&from=${range.from}&to=${range.to}&token=${token}`;
             const articles = await fetchJSON<RawNewsArticle[]>(url, 300);
             perSymbolArticles[sym] = (articles || []).filter(validateArticle);
-          } catch (e) {
-            console.error("Error fetching company news for", sym, e);
+          } catch (err) {
+            console.error("Error fetching company news for", sym, err);
             perSymbolArticles[sym] = [];
           }
         })
@@ -140,8 +140,8 @@ export const searchStocks = cache(
               // Revalidate every hour
               const profile = await fetchJSON<any>(url, 3600);
               return { sym, profile } as { sym: string; profile: any };
-            } catch (e) {
-              console.error("Error fetching profile2 for", sym, e);
+            } catch (err) {
+              console.error("Error fetching profile2 for", sym, err);
               return { sym, profile: null } as { sym: string; profile: any };
             }
           })

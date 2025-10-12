@@ -52,10 +52,10 @@ const SearchCommand = ({
     }
   };
 
-  const debounceSearch = useDebounce(handleSearch, 300);
+  const debouncedSearch = useDebounce(handleSearch, 300);
 
   useEffect(() => {
-    debounceSearch();
+    debouncedSearch();
   }, [searchTerm]);
 
   const handleSelectStock = () => {
