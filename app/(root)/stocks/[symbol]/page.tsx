@@ -1,4 +1,5 @@
 import TradingViewWidget from "@/components/TradingViewWidget";
+import WatchlistButton from "@/components/WatchlistButton";
 import {
   BASELINE_WIDGET_CONFIG,
   CANDLE_CHART_WIDGET_CONFIG,
@@ -37,7 +38,11 @@ const StockDetails = async ({ params }: StockDetailsPageProps) => {
         </div>
         <div className="flex flex-col gap-6">
           <div className="flex items-center justify-between">
-            {/* Watchlist Button */}
+            <WatchlistButton
+              symbol={symbol.toUpperCase()}
+              company={symbol.toUpperCase()}
+              isInWatchlist={false}
+            />
           </div>
           <TradingViewWidget
             scriptUrl={`${scriptUrl}technical-analysis.js`}
